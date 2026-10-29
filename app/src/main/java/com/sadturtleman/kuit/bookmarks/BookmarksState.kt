@@ -1,0 +1,14 @@
+package com.sadturtleman.kuit.bookmarks
+
+import com.sadturtleman.kuit.domain.model.Book
+
+data class BookmarksUiState(
+    val books: List<Book> = emptyList(),
+)
+
+sealed interface BookmarksIntent {
+
+    data class ToggleBookmark(
+        val id: String
+    ) : BookmarksIntent
+}
