@@ -1,0 +1,12 @@
+package com.sadturtleman.kuit.domain
+
+import kotlinx.coroutines.flow.Flow
+
+// interface 는 Domain 에. 어디서 가져오는지(Fake / 서버 / DB)는 모른다.
+interface BookRepository {
+    fun observeBooks(query: String): Flow<List<Book>>
+    fun observeBookmarkedBooks(): Flow<List<Book>>
+
+    suspend fun getBook(id: String): Book
+    fun toggleBookmark(id: String)
+}
